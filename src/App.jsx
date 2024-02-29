@@ -1,5 +1,8 @@
+import { useState } from "react";
 import "./App.css";
 import Comment_Card from "./components/comment_card";
+import MapComment from "./components/MapComment";
+
 const comments = [
   {
     id: 1,
@@ -70,6 +73,7 @@ const comments = [
 
 function App() {
   console.log(new Date());
+
   return (
     <div id="blog">
       <div id="banner">
@@ -112,6 +116,19 @@ function App() {
         <h2 className="title">
           Comments {comments.filter((item) => !item.parent_id).length}
         </h2>
+        <h3>Add your comment</h3>
+        <form action="" className="comment_form">
+          <input type="text" name="Full_Name" placeholder="Full Name*" />
+          <textarea
+            name="message"
+            id=""
+            cols="20"
+            rows="1"
+            placeholder="Message(s)"
+          ></textarea>
+
+          <input type="submit" value="Submit" />
+        </form>
         {/* 
         {comments.map((item) => (
           <Comment_Card comments={comments} data={item} key={item.id} />
@@ -190,19 +207,13 @@ function App() {
             </section>
           ))}
 
-        <form action="" className="comment_form">
-          <h3>Add your comment</h3>
-          <input type="text" name="Full_Name" placeholder="Full Name*" />
-          <textarea
-            name="message"
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Message(s)"
-          ></textarea>
+        <h1>Minimize Code</h1>
 
-          <input type="submit" value="Submit" />
-        </form>
+        <MapComment comments={comments}>
+          <MapComment comments={comments}>
+            <MapComment comments={comments} ascending={true} />
+          </MapComment>
+        </MapComment>
       </div>
     </div>
   );

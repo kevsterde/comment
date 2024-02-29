@@ -56,11 +56,13 @@ main {
 .comment_form {
   margin-top: 40px;
   display: flex;
-  flex-direction: column;
+
   gap: 5px;
 }
 
 .comment_form > * {
   font-size: 20px;
-  padding: 10px 20px;
+  line-height: 100%;
+  padding: 5px 20px;
+  flex: 1;
 }
